@@ -24,6 +24,7 @@ vim.keymap.set("n", "<leader>P", "\"+P")
 
 -- I want things to work properly without needing to press escape
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("i", "<C-Space>", "<Esc>")
 
 -- Exiting terminal emulator
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
@@ -74,3 +75,18 @@ vim.keymap.set( "n", "<C-h>", "zH")
 
 -- Toggling Relative Line Numbers
 vim.keymap.set( "n", "<leader>tr", vim.cmd.ToggleRNU)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+      vim.keymap.set("n", "<leader>mm", vim.cmd.Markview)
+  end
+})
+
+-- Search in file for item under cursor (no lsp or telescope)
+-- This only works in insert mode to add some speed
+-- For similar functionality in 
+vim.keymap.set("i", "<C-/>", "<Esc>/<C-r><C-w>", {
+    desc = "Foreward searches current buffer for word under cursor (insert mode)" })
+vim.keymap.set("i", "<CS-/>", "<Esc>?<C-r><C-w>", { 
+    desc = "Reverse searches current buffer for word under cursor (insert mode)" })

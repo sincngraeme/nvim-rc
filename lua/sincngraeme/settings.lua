@@ -3,6 +3,7 @@
 -- line numbers
 vim.opt.nu = true
 vim.opt.cursorline = true
+vim.opt.rnu = true
 
 -- Fix the god-awful indenting
 vim.opt.tabstop = 4
@@ -27,6 +28,9 @@ vim.o.shell = "bash"
 -- Persistant undos
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath('config') .. '~/.config/nvim/undo'
+
+-- Netrw Appearance
+vim.g.netrw_banner = false
 -- }}}
 
 -- Diagnostic Symbols {{{
