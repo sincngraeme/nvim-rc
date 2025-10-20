@@ -31,6 +31,10 @@ vim.opt.undodir = vim.fn.stdpath('config') .. '~/.config/nvim/undo'
 
 -- Netrw Appearance
 vim.g.netrw_banner = false
+
+-- Disable comment continuation
+vim.opt.formatoptions:remove({ 'r', 'o', 'c' })
+
 -- }}}
 
 -- Diagnostic Symbols {{{
