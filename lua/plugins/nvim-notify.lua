@@ -1,6 +1,10 @@
 return {
-    "rcarriga/nvim-notify",
-    config = function()
+    link = "rcarriga/nvim-notify",
+    setup = function()
         vim.notify = require("notify")
+        -- setup
+        return {
+
+        }
     end
 }

@@ -1,1 +1,1 @@
-vim.g.undotree_DiffCommand = "FC"
+-- vim.g.undotree_DiffCommand = "FC"
