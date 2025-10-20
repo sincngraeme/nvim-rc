@@ -1,8 +1,16 @@
 {
   "plugins": {
+    "kanagawa.nvim": {
+      "rev": "aef7f5c",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "nvim-notify": {
       "rev": "8701bec",
       "src": "https://github.com/rcarriga/nvim-notify"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "persistence.nvim": {
       "rev": "51eef57",
@@ -16,6 +24,10 @@
       "rev": "a0bbec2",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
       "version": "'0.1.8'"
+    },
+    "tokyonight.nvim": {
+      "rev": "e63c42a",
+      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "undotree": {
       "rev": "0f1c981",

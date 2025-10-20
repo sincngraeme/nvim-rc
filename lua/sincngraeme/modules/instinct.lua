@@ -4,7 +4,7 @@ local json = vim.fn.json_decode
 local M = {}
 
 -- The name of the file
-local data_file = vim.fn.stdpath("config") .. "/persist.json"
+local data_file = vim.fn.stdpath("config") .. "." .. "instinct.json"
 M.data = {}
 
 -- Load the Persisted data from the file {{{
