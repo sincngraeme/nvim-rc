@@ -6,16 +6,24 @@
     -- -- Now we know which colorscheme to load
     -- vim.cmd("colorscheme " .. vim.g.default_colorscheme)
 
--- First we load the plugins 
-require("sincngraeme.modules.simplug").load_list({
-    { name = "plenary", nosetup = true },
-    "telescope",
-    "nvim-notify",
-    "persistence",
-})
+-- First we load the colorschemes 
+require("sincngraeme.modules.simplug").load({
+    "kanagawa",
+    "tokyonight",
+}, "colorschemes")
 
 -- Set the colorscheme
 vim.cmd.colorscheme("habamax")
+
+
+-- Then we load the plugins 
+require("sincngraeme.modules.simplug").load({
+    "plenary",
+    "telescope",
+    "nvim-notify",
+    "persistence",
+    "undotree",
+})
 
 -- Then we load the user settings and remaps
 require("sincngraeme.remaps")
@@ -25,4 +33,3 @@ require("sincngraeme.settings")
 
 -- Then we load the plugin specific "after" settings (plugin specific remaps)
 
-print("Hello There!")

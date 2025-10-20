@@ -1,1 +1,4 @@
-return{ 'mbbill/undotree' }
+return{ 
+    link = 'mbbill/undotree',
+    config = false
+}

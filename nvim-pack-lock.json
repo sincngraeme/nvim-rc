@@ -16,6 +16,10 @@
       "rev": "a0bbec2",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
       "version": "'0.1.8'"
+    },
+    "undotree": {
+      "rev": "0f1c981",
+      "src": "https://github.com/mbbill/undotree"
     }
   }
 }

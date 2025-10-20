@@ -1,46 +1,35 @@
 local M = {}
 
-local plugin_dir_relative = "plugins"
+local default_plugin_dir = "plugins"
 local remote_url = "https://github.com/"
+local pack_list = {}  -- absolute links for instalations
+local config_list = {} -- Configurations for each plugin
+local log_level = vim.log.levels.INFO
 
-function M.load_list(plugin_list)
-    local pack_list = {}  -- relative links for installing with builtin plugin manager
-    local setup_list = {} -- 
-    local nosetup = {}    -- the list of plugins to not run setup for
+function M.load(plugin_list, plugin_dir) plugin_dir = plugin_dir or default_plugin_dir
     for i, plugin in ipairs(plugin_list) do
-	-- Handling table inputs
-        if type(plugin) == "table" then -- We may specify no setup
-            table.insert(nosetup, plugin.nosetup)
-            plugin = plugin.name
-            plugin_list[i] = plugin
+        -- Git link handling
+        local module = require(plugin_dir .. "." .. plugin)
+        if type(module.link) == "string" then -- Sometimes a branch is specified (pass a table instead)
+            table.insert(pack_list, remote_url .. module.link)
         else
-	    table.insert(nosetup, false)
+            table.insert(pack_list, { src = remote_url .. module.link.src, version = module.link.version })
         end
-	-- Git link handling
-        local config = require(plugin_dir_relative .. "." .. plugin)
-        if type(config.link) == "string" then -- Sometimes a branch is specified (pass a table instead)
-            table.insert(pack_list, remote_url .. config.link)
-        else
-            table.insert(pack_list, { src = remote_url .. config.link.src, version = config.link.version })
-        end
-        table.insert(setup_list, config.setup)
+        table.insert(config_list, module.config)
     end
     -- Install
     vim.pack.add(pack_list)
     -- Configure
-    for i, plugin_setup in ipairs(setup_list) do
-        if nosetup[i] then -- Do nothing
-            print("Setup module ignored: " .. plugin_list[i])
+    for i, plugin_config in ipairs(config_list) do
+        if not plugin_config then -- Do nothing
+            -- vim.notify(plugin_list[i] .. ": No Config", log_level)
         else
-            local ok, module = pcall(require, plugin_list[i])
-            if ok and type(module.setup) == "function" then
-		if type(plugin_setup) == "function" then module.setup(plugin_setup()) 
-		elseif type(plugin_setup) == "table" then module.setup(plugin_setup) end
-                print(plugin_list[i] .. " Loaded successfully")
-            else
-                vim.notify("Failed to load " .. type(module.setup) .. 
-                " " .. vim.inspect(module.setup) .. "for plugin" .. 
-                plugin_list[i], vim.log.levels.ERROR)
+            if type(plugin_config) == "table" then
+                vim.notify("Error loading config for: " .. plugin_list[i] .. "Config must be a function", 
+                    vim.log.levels.ERROR)
+            else 
+                -- vim.notify(plugin_list[i] .. ": Config Loaded Successfully", log_level)
+                plugin_config()
             end
         end
     end

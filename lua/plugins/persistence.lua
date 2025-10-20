@@ -1,6 +1,8 @@
 return {
     link = "folke/persistence.nvim",
-    setup = {
-    -- add any custom options here
-    }   
+    config = function()
+        return require('persistence').setup({
+            -- add any custom options here
+        })   
+    end
 }
