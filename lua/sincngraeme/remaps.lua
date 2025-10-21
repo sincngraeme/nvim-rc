@@ -2,9 +2,7 @@ vim.g.mapleader = " "
 
 -- Open netrw
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
-
--- Open UndoTree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>lex", vim.cmd.Lex)
 
 -- Reset Directory to Current File
 vim.keymap.set({'n','c'}, '<leader>cd', '<cmd>cd %:p:h<cr>')
@@ -27,10 +25,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<C-Space>", "<Esc>")
 
 -- Exiting terminal emulator
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
-
--- For toggling ctags window
-vim.keymap.set("n", "<leader>tt",vim.cmd.TagbarToggle)
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]])
 
 -- Autopairing Brackets
 vim.keymap.set({"i", "n"}, "{<CR>", "{<CR>}<C-c>ko")
@@ -76,12 +71,6 @@ vim.keymap.set( "n", "<C-h>", "zH")
 -- Toggling Relative Line Numbers
 vim.keymap.set( "n", "<leader>tr", vim.cmd.ToggleRNU)
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-      vim.keymap.set("n", "<leader>mm", vim.cmd.Markview)
-  end
-})
 
 -- Search in file for item under cursor (no lsp or telescope)
 -- This only works in insert mode to add some speed

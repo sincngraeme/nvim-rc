@@ -11,14 +11,14 @@ return {
 		require('nvim-treesitter.configs').setup {
 			-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 			ensure_installed = { "c", "cpp", 
-                                "javascript", 
+                                "javascript", "html", "css",
                                 "python", 
                                 "lua", 
                                 "vim", "vimdoc", 
                                 "query", 
-                                "markdown", "markdown_inline", 
-                                "latex", "typst", 
-                                "matlab"},
+                                "markdown", "markdown_inline", "yaml",
+                                "typst"
+            },
 
 			highlight = {
 			  enable = true,

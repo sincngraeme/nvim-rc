@@ -77,3 +77,20 @@ vim.api.nvim_create_user_command('ToggleRNU', function()
 	_G.toggle_relative_ln()
 end, {})
 -- }}}
+
+---------------------------- Autocomands ----------------------------
+
+-- Making sure that when we edit a commmand from terminal we exit on save 
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "bash-fc-*",
+    callback = function()
+        vim.cmd.q -- Exit when we save
+    end
+}
+-- Stop C-z from suspending the process
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "bash-fc-*",
+    callback = function()
+        vim.keymap.del("n", "C-z") -- Delete the map (does not persist)
+    end
+}

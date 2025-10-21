@@ -4,6 +4,10 @@
       "rev": "aef7f5c",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
+    "markview.nvim": {
+      "rev": "c93ea99",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "nvim-notify": {
       "rev": "8701bec",
       "src": "https://github.com/rcarriga/nvim-notify"

@@ -16,6 +16,7 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 -- Load the plugins (order matters)
 require("sincngraeme.modules.simplug").load({
     "nvim-notify",
+    "markview",
     "treesitter",
     "plenary",
     "telescope",
@@ -26,5 +27,5 @@ require("sincngraeme.modules.simplug").load({
 -- Load the user settings and remaps
 require("sincngraeme.remaps")
 require("sincngraeme.settings")
-
+require("sincngraeme.cmds")
 -- Then we load any other user modules
