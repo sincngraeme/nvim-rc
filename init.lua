@@ -16,11 +16,11 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 -- Load the plugins (order matters)
 require("sincngraeme.modules.simplug").load({
     "nvim-notify",
-    "markview",
     "treesitter",
     "plenary",
     "telescope",
     "persistence",
+    "markview",
     "undotree",
 })
 
@@ -28,4 +28,17 @@ require("sincngraeme.modules.simplug").load({
 require("sincngraeme.remaps")
 require("sincngraeme.settings")
 require("sincngraeme.cmds")
--- Then we load any other user modules
+
+--- LSP SETUP ---
+
+local lsp_config = require("lsp.default")
+
+-- List of LSPs we want setup 
+lsp_config.lsp_list = {
+    "clangd", -- c
+    "lua_ls", -- lua
+    "fake"
+}
+
+-- initialize them all
+lsp_config.init()

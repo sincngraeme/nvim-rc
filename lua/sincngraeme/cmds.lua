@@ -81,16 +81,19 @@ end, {})
 ---------------------------- Autocomands ----------------------------
 
 -- Making sure that when we edit a commmand from terminal we exit on save 
+-- (WINCOMPATIBLE)
 vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "bash-fc-*",
+    pattern = "bash-fc.*",
     callback = function()
-        vim.cmd.q -- Exit when we save
+        print("Running Cmd...")
+        vim.cmd("q") -- Exit when we save
     end
-}
--- Stop C-z from suspending the process
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "bash-fc-*",
+})
+-- Stop C-z from suspending the process (WINCOMPATIBLE)
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "bash-fc.*",
     callback = function()
-        vim.keymap.del("n", "C-z") -- Delete the map (does not persist)
+        print("Editing Command")
+        vim.keymap.set("n", "C-z", "") -- Delete the map (does not persist)
     end
-}
+})
