@@ -34,17 +34,10 @@ vim.lsp.config('*', {
 
 M.lsp_list = {}
 
-function M.check_if_installed()
-    for _, lsp in ipairs(M.lsp_list) do
-        
-    end
-end
-
 function M.get_lsp_config(lsp, script)
     script = script or false
     local dir = vim.fn.stdpath("config") .. "/lua/lsp"
     local path = dir .. "/" .. lsp .. ".lua"
-    local pwd = vim.cmd.pwd
     local url = "https://raw.githubusercontent.com/neovim/nvim-lspconfig/refs/heads/master/lsp/"
     local url_complete = url .. lsp .. ".lua"
 
@@ -54,18 +47,18 @@ function M.get_lsp_config(lsp, script)
     -- Example: curl --silent -w "%{http_code}" https://raw.githubusercontent.com/neovim/nvim-lspconfig/refs/heads/master/lsp/lua_ls.lua -o lua_ls.lua
     vim.notify("Downloading lsp config for " .. lsp .." from: " .. url, vim.log.levels.INFO)
     local result = vim.system({
-        "curl", 
-        "-sw", 
-        "%{http_code}", 
-        url_complete, 
-        "-o", 
+        "curl",
+        "-sw",
+        "%{http_code}",
+        url_complete,
+        "-o",
         path
-    }, { cwd = dir }):wait() 
+    }, { cwd = dir }):wait()
     print(vim.inspect(result))
     if result.stdout ~= "200" then
         vim.notify("Lsp Config Failed to Download", vim.log.levels.ERROR)
-        if vim.fn.filereadable(path) then 
-            vim.fn.delete(path) 
+        if vim.fn.filereadable(path) then
+            vim.fn.delete(path)
         end
     else
         vim.notify("Lsp Config Successfully Downloaded", vim.log.levels.INFO)
