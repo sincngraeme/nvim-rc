@@ -44,10 +44,11 @@ vim.keymap.set("n", "<leader>wqa", vim.cmd.wqa)
 vim.keymap.set("n", "<leader>ww", vim.cmd.w)
 vim.keymap.set("n", "<leader>q!", '<cmd>q!<CR>')
 vim.keymap.set("n", "<leader>qa!", '<cmd>qa!<CR>')
+vim.keymap.set("n", "<leader><leader>", vim.cmd.bn)
 
 -- Open nvimrc
--- vim.keymap.set("n", "<leader>orc", [[:tabnew $MYVIMRC/..<CR]])
-
+local rc_path = vim.fn.stdpath("config")
+vim.keymap.set("n", "<leader>orc", "<cmd>tabnew " .. rc_path .. "<CR>")
 -- vim.keymap.set("n", "<leader>q!", vim.cmd.q!)
 
 -- Move a visual selection (not the text just the highlight)
@@ -71,11 +72,12 @@ vim.keymap.set( "n", "<C-h>", "zH")
 -- Toggling Relative Line Numbers
 vim.keymap.set( "n", "<leader>tr", vim.cmd.ToggleRNU)
 
-
 -- Search in file for item under cursor (no lsp or telescope)
 -- This only works in insert mode to add some speed
--- For similar functionality in 
-vim.keymap.set("i", "<C-/>", "<Esc>/<C-r><C-w>", {
-    desc = "Foreward searches current buffer for word under cursor (insert mode)" })
-vim.keymap.set("i", "<CS-/>", "<Esc>?<C-r><C-w>", { 
-    desc = "Reverse searches current buffer for word under cursor (insert mode)" })
+-- For similar functionality in
+vim.keymap.set("i", "<C-/>", "<Esc>/<C-r><C-w>", { desc = "Foreward searches current buffer for word under cursor (insert mode)" })
+vim.keymap.set("i", "<CS-/>", "<Esc>?<C-r><C-w>", { desc = "Reverse searches current buffer for word under cursor (insert mode)" })
+
+-- Trim Trailing Whitespace in File
+vim.keymap.set("n", "<leader>tw", "<cmd>%s/\\s*$//g<CR>")
+vim.keymap.set("v", "<leader>tw", "<cmd>'<,'>s/\\s*$//g<CR>")

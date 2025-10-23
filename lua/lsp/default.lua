@@ -37,15 +37,13 @@ M.lsp_list = {}
 function M.get_lsp_config(lsp, script)
     script = script or false
     local dir = vim.fn.stdpath("config") .. "/lua/lsp"
-    local path = dir .. "/" .. lsp .. ".lua"
+    local path = dir .. "/" .. (lsp.name or lsp) .. ".lua"
     local url = "https://raw.githubusercontent.com/neovim/nvim-lspconfig/refs/heads/master/lsp/"
-    local url_complete = url .. lsp .. ".lua"
+    local url_complete = url .. (lsp.name or lsp) .. ".lua"
 
-    -- set the directory
-    -- vim.fn.chdir(dir)
     -- Download the file
     -- Example: curl --silent -w "%{http_code}" https://raw.githubusercontent.com/neovim/nvim-lspconfig/refs/heads/master/lsp/lua_ls.lua -o lua_ls.lua
-    vim.notify("Downloading lsp config for " .. lsp .." from: " .. url, vim.log.levels.INFO)
+    vim.notify("Downloading lsp config for " .. (lsp.name or lsp) .." from: " .. url, vim.log.levels.INFO)
     local result = vim.system({
         "curl",
         "-sw",
@@ -62,11 +60,8 @@ function M.get_lsp_config(lsp, script)
         end
     else
         vim.notify("Lsp Config Successfully Downloaded", vim.log.levels.INFO)
-        -- if vim.fn.filereadable(path) then
-        -- Open the file for review in new tab
         if not script then vim.cmd.tabnew(path) end
     end
-    -- vim.fn.chdir(pwd)
 end
 
 -- Function to download an individual config file from https://github.com/neovim/nvim-lspconfig
@@ -79,19 +74,19 @@ function M.init()
     local lsp_dir = "lsp"
     local user_input = "y"
     for _, lsp in ipairs(M.lsp_list) do
-        local lsp_path = lsp_dir .. "." .. lsp
+        local lsp_path = lsp_dir .. "." .. (lsp.name or lsp)
         local ok, module = pcall(require, lsp_path) -- If the module does not exist don't load
         if ok then
-            vim.lsp.config(lsp, module)
-            vim.lsp.enable(lsp)
+            vim.lsp.config(lsp.executable or lsp, module)
+            vim.lsp.enable(lsp.name or lsp)
         else
             if not user_input:match("^[YN]") then
-                vim.notify("LSP config file for " .. lsp .. " not found.", vim.log.levels.WARNING)
-                user_input = vim.fn.input("Download " .. lsp .."? ([y]es|[n]o|[Y]es to all|[N]o to all):")
+                vim.notify("LSP config file for " .. (lsp.name or lsp) .. " not found.", vim.log.levels.WARNING)
+                user_input = vim.fn.input("Download " .. (lsp.name or lsp) .."? ([y]es|[n]o|[Y]es to all|[N]o to all):")
                 user_input = user_input:match("^[yYnN]")
             end
             -- Download if yes or Yes
-            if user_input:match("^[yY]") then M.get_lsp_config(lsp, true) end
+            if user_input:match("^[yY]") then M.get_lsp_config((lsp.name or lsp), true) end
         end
     end
 end
