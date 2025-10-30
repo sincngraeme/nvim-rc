@@ -66,8 +66,8 @@ vim.keymap.set("v", "<M-y>", "ygv")
 vim.keymap.set("v", "<M-d>", "dgv")
 
 -- Side scrolling
-vim.keymap.set( "n", "<C-l>", "zL")
-vim.keymap.set( "n", "<C-h>", "zH")
+vim.keymap.set( "n", "<C-l>", "zL", { desc = "Scrolls the view sideways left"})
+vim.keymap.set( "n", "<C-h>", "zH", { desc = "Scrolls the view sideways right"})
 
 -- Toggling Relative Line Numbers
 vim.keymap.set( "n", "<leader>tr", vim.cmd.ToggleRNU)

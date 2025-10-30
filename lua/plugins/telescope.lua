@@ -5,7 +5,6 @@ return {
         return require('telescope').setup({
             defaults = {
                 layout_strategy = "vertical",
-                prompt_preifx = ": ",
             }
         }) -- Setup table
     end

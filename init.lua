@@ -4,8 +4,15 @@ local persist = require('sincngraeme.modules.instinct')
 vim.g.default_colorscheme = persist.get('default_colorscheme')
 vim.g.bg_transparency = persist.get('bg_transparency')
 
+-- Load the package manager
+local simplug = require("sincngraeme.modules.simplug")
+-- Configure
+simplug.setup({
+    always_update = true,
+})
+
 -- Load the colorschemes 
-require("sincngraeme.modules.simplug").load({
+simplug.load({
     "kanagawa",
     "tokyonight",
 }, "colorschemes")
@@ -14,7 +21,7 @@ require("sincngraeme.modules.simplug").load({
 vim.cmd.colorscheme(vim.g.default_colorscheme)
 
 -- Load the plugins (order matters)
-require("sincngraeme.modules.simplug").load({
+simplug.load({
     "nvim-notify",
     "treesitter",
     "plenary",
@@ -23,6 +30,9 @@ require("sincngraeme.modules.simplug").load({
     "markview",
     "undotree",
 })
+
+-- Clean the unused plugins
+simplug.clean()
 
 -- Load the user settings and remaps
 require("sincngraeme.remaps")

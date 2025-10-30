@@ -17,7 +17,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "persistence.nvim": {
-      "rev": "51eef57",
+      "rev": "b20b2a7",
       "src": "https://github.com/folke/persistence.nvim"
     },
     "plenary.nvim": {
@@ -30,7 +30,7 @@
       "version": "'0.1.8'"
     },
     "tokyonight.nvim": {
-      "rev": "e63c42a",
+      "rev": "2642dbb",
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "undotree": {
