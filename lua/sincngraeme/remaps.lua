@@ -17,15 +17,71 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "<leader>y$", "\"+y$")
 vim.keymap.set("n", "<leader>yy", "\"+yy")
-vim.keymap.set("n", "<leader>p", "\"+p")
-vim.keymap.set("n", "<leader>P", "\"+P")
+vim.keymap.set({"n", "v"}, "<leader>p", "\"+p")
+vim.keymap.set({"n", "v"}, "<leader>P", "\"+P")
 
 -- I want things to work properly without needing to press escape
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<C-Space>", "<Esc>")
 
--- Exiting terminal emulator
-vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]])
+-- Changing windows when in terminal emulator
+vim.keymap.set("t", "<C-W>", "<C-\\><C-N><C-W>", { desc = "Allows for faster window switching" })
+vim.keymap.set("t", "<C-S-W>", "<C-W>", { desc = "Gives another way to send CTRL-W" })
+-- Default to insert mode
+vim.api.nvim_create_autocmd({ "WinEnter" }, {
+    pattern = "term://*",
+    callback = function()
+            vim.cmd("startinsert")
+    end
+})
+-- Open new terminal in split
+vim.keymap.set("n", "<leader>ots", function()
+    vim.cmd("new")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal in horizontal split" })
+vim.keymap.set("n", "<leader>otv", function()
+    vim.cmd("vnew")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal in vertical split" })
+-- Open terminal on bottom of screen
+vim.keymap.set("n", "<leader>otj", function()
+    vim.cmd("new")
+    vim.cmd("wincmd J")
+    vim.cmd("res 10")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal on bottom of screen" })
+-- Open terminal on left side of screen
+vim.keymap.set("n", "<leader>oth", function()
+    vim.cmd("new")
+    vim.cmd("wincmd H")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal in on left side of screen" })
+-- Open terminal on top of screen
+vim.keymap.set("n", "<leader>otk", function()
+    vim.cmd("new")
+    vim.cmd("wincmd K")
+    vim.cmd("res 10")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal at top of screen" })
+-- Open terminal on left side of screen
+vim.keymap.set("n", "<leader>otl", function()
+    vim.cmd("new")
+    vim.cmd("wincmd L")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal on left side of screen" })
+-- Open terminal in new tab
+vim.keymap.set("n", "<leader>ott", function()
+    vim.cmd("tabnew")
+    vim.cmd("term")
+    vim.cmd("startinsert")
+end, { desc = "Opens terminal in new tab" })
+
 
 -- Autopairing Brackets
 vim.keymap.set({"i", "n"}, "{<CR>", "{<CR>}<C-c>ko")
@@ -42,9 +98,8 @@ vim.keymap.set("n", "<leader>wa", vim.cmd.wa)
 vim.keymap.set("n", "<leader>qa", vim.cmd.qa)
 vim.keymap.set("n", "<leader>wqa", vim.cmd.wqa)
 vim.keymap.set("n", "<leader>ww", vim.cmd.w)
-vim.keymap.set("n", "<leader>q!", '<cmd>q!<CR>')
-vim.keymap.set("n", "<leader>qa!", '<cmd>qa!<CR>')
-vim.keymap.set("n", "<leader><leader>", vim.cmd.bn)
+vim.keymap.set("n", "<leader>Q", '<cmd>q!<CR>')
+vim.keymap.set("n", "<leader>Qa", '<cmd>qa!<CR>')
 
 -- Open nvimrc
 local rc_path = vim.fn.stdpath("config")

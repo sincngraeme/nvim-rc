@@ -37,7 +37,7 @@ vim.opt.formatoptions:remove({ 'r', 'o', 'c' })
 
 -- }}}
 
--- Diagnostic Symbols {{{
+-- LSP {{{
 vim.diagnostic.config({
   signs = {
     text = {
@@ -47,7 +47,9 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.INFO] = '',
     },
   },
-}) -- }}}
+})
+
+-- }}}
 
 -- Tab Symbols for Makefile {{{
 vim.api.nvim_create_autocmd("FileType", {

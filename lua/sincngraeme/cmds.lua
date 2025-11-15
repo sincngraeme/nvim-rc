@@ -78,6 +78,27 @@ vim.api.nvim_create_user_command('ToggleRNU', function()
 end, {})
 -- }}}
 
+-- Make the current buffer Scratch (temporary) buffer
+vim.api.nvim_create_user_command('Scratch', function()
+    vim.cmd("setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted")
+end, {})
+-- Make the current buffer Scratch (temporary) buffer
+vim.api.nvim_create_user_command('ScratchNew', function()
+    vim.cmd("new")
+    vim.cmd("setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted")
+end, {})
+
+-- Scratch buffer for clipboard editing
+function _G.CreateClipboardScratchBuffer()
+    vim.cmd("Scratch")
+    vim.keymap.set("n", "<leader>ww", function()
+        vim.cmd("%y+")
+        vim.schedule(function()
+            vim.cmd("q")
+        end)
+    end, { buffer = true })
+end
+
 ---------------------------- Autocomands ----------------------------
 
 -- Making sure that when we edit a commmand from terminal we exit on save 

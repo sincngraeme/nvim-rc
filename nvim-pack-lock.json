@@ -1,12 +1,28 @@
 {
   "plugins": {
+    "flash.nvim": {
+      "rev": "fcea7ff",
+      "src": "https://github.com/folke/flash.nvim"
+    },
+    "image.nvim": {
+      "rev": "446a8a5",
+      "src": "https://github.com/3rd/image.nvim"
+    },
     "kanagawa.nvim": {
       "rev": "aef7f5c",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
+    "live-preview.nvim": {
+      "rev": "a1bb1b3",
+      "src": "https://github.com/brianhuster/live-preview.nvim"
+    },
     "markview.nvim": {
-      "rev": "c93ea99",
+      "rev": "31f9a26",
       "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
+    "marp-nvim": {
+      "rev": "4f38e6f",
+      "src": "https://github.com/mpas/marp-nvim"
     },
     "nvim-notify": {
       "rev": "8701bec",
@@ -16,6 +32,10 @@
       "rev": "42fc28ba",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "obsidian.nvim": {
+      "rev": "14e0427",
+      "src": "https://github.com/epwalsh/obsidian.nvim"
+    },
     "persistence.nvim": {
       "rev": "b20b2a7",
       "src": "https://github.com/folke/persistence.nvim"
@@ -23,6 +43,10 @@
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "telescope-media-files.nvim": {
+      "rev": "0826c7a",
+      "src": "https://github.com/nvim-telescope/telescope-media-files.nvim"
     },
     "telescope.nvim": {
       "rev": "a0bbec2",
@@ -36,6 +60,14 @@
     "undotree": {
       "rev": "0f1c981",
       "src": "https://github.com/mbbill/undotree"
+    },
+    "vim-scimark": {
+      "rev": "e6947e1",
+      "src": "https://github.com/mipmip/vim-scimark"
+    },
+    "vim-surround": {
+      "rev": "3d188ed",
+      "src": "https://github.com/tpope/vim-surround"
     }
   }
 }
