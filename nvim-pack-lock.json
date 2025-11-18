@@ -8,10 +8,6 @@
       "rev": "446a8a5",
       "src": "https://github.com/3rd/image.nvim"
     },
-    "kanagawa.nvim": {
-      "rev": "aef7f5c",
-      "src": "https://github.com/rebelot/kanagawa.nvim"
-    },
     "live-preview.nvim": {
       "rev": "a1bb1b3",
       "src": "https://github.com/brianhuster/live-preview.nvim"
@@ -52,10 +48,6 @@
       "rev": "a0bbec2",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
       "version": "'0.1.8'"
-    },
-    "tokyonight.nvim": {
-      "rev": "2642dbb",
-      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "undotree": {
       "rev": "0f1c981",

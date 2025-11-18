@@ -1,4 +1,4 @@
--- Function to set the default colorscheme {{{
+-- Function to set the default color scheme {{{
 function _G.set_colorscheme(name)
     local persist = require('sincngraeme.modules.instinct')
     local ok, _ = pcall(vim.cmd, "colorscheme " .. name) -- Protected call to set it
@@ -78,7 +78,7 @@ vim.api.nvim_create_user_command('ToggleRNU', function()
 end, {})
 -- }}}
 
--- Make the current buffer Scratch (temporary) buffer
+-- Make a new Scratch (temporary) buffer
 vim.api.nvim_create_user_command('Scratch', function()
     vim.cmd("setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted")
 end, {})
@@ -99,9 +99,9 @@ function _G.CreateClipboardScratchBuffer()
     end, { buffer = true })
 end
 
----------------------------- Autocomands ----------------------------
+---------------------------- Autocommands ----------------------------
 
--- Making sure that when we edit a commmand from terminal we exit on save 
+-- Making sure that when we edit a command from terminal we exit on save 
 -- (WINCOMPATIBLE)
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = "bash-fc.*",
@@ -118,3 +118,25 @@ vim.api.nvim_create_autocmd("VimEnter", {
         vim.keymap.set("n", "C-z", "") -- Delete the map (does not persist)
     end
 })
+
+-- -- Prevent unused terminal buffers from cluttering the buffer list
+-- vim.api.nvim_create_autocmd("TermClose", {
+--   pattern = "*",
+--   callback = function(args)
+--     local buf = args.buf
+--     if vim.bo[buf].buftype ~= "terminal" then
+--       return
+--     end
+--
+--     -- check if the buffer is still displayed somewhere
+--     for _, win in ipairs(vim.api.nvim_list_wins()) do
+--       if vim.api.nvim_win_get_buf(win) == buf then
+--         return -- buffer is still visible, don't delete
+--       end
+--     end
+--
+--     -- safe to delete
+--     vim.api.nvim_buf_delete(buf, { force = true })
+--   end,
+-- })
+--

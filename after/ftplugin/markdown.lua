@@ -1,29 +1,34 @@
-vim.opt_local.conceallevel = 2
 local export_path = "/home/sincngraeme/Documents/PDFs/%:t:r.pdf"
-vim.keymap.set("n", "<leader>mm", vim.cmd.Markview)
-vim.opt.wrap = true
-vim.opt.wrapmargin = 5
-vim.opt.linebreak = true
-vim.opt.spell = true
-vim.opt.spelllang = {'en_us', 'en_gb'}
-local bufnr = vim.api.nvim_get_current_buf()
+
+-- Filetype specific keymaps
+vim.keymap.set("n", "<leader>mm", vim.cmd.Markview, { desc = "Toggles markdown preview", buffer = true })
+vim.keymap.set("n", "<leader>z=", "1z=", { desc = "Accept first spell suggestion", buffer = true })
+vim.keymap.set("n", "<leader>zl", "z=", { desc = "List spelling suggestions", buffer = true })
+-- Filetype specific options
+vim.opt_local.conceallevel = 2
+vim.opt_local.wrap = true
+vim.opt_local.wrapmargin = 5
+vim.opt_local.linebreak = true
+vim.opt_local.spell = true
+vim.opt_local.spelllang = {'en_us', 'en_gb'}
+-- Filetype specific commands
 local choose_engine = function(args)
     if args and args == "typst" then
-        vim.bo[bufnr].makeprg = "pandoc  '%' --pdf-engine=typst  " ..
+        vim.opt_local.makeprg = "pandoc  '%' --pdf-engine=typst  " ..
             "--from=markdown+wikilinks_title_after_pipe " ..
             "-t pdf " ..
             "--template='report.typ'  " ..
             "-o '" .. export_path .. "' && " ..
             "mupdf '" .. export_path .. "'"
     elseif args == "weasyprint" then
-        vim.bo[bufnr].makeprg = "pandoc  '%' --pdf-engine=weasyprint " ..
+        vim.opt_local.makeprg = "pandoc  '%' --pdf-engine=weasyprint " ..
             "-f markdown " ..
             "-t pdf " ..
             -- "--template='report.html'  " ..
             "-o '" .. export_path .. "' && " ..
             "mupdf '" .. export_path .. "'"
     elseif args == "latex" then
-        vim.bo[bufnr].makeprg = "pandoc  '%' --pdf-engine=pdflatex " ..
+        vim.opt_local.makeprg = "pandoc  '%' --pdf-engine=pdflatex " ..
             "-f markdown " ..
             "-t pdf " ..
             "--template='report.latex'  " ..

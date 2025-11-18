@@ -11,13 +11,13 @@ simplug.setup({
     always_update = false,
 })
 
--- Load the colorschemes 
-simplug.load({
-    "kanagawa",
-    "tokyonight",
-}, "colorschemes")
+-- Load the color schemes 
+-- simplug.load({
+--     "kanagawa",
+--     "tokyonight",
+-- }, "colorschemes")
 
--- Now we know which colorscheme to load
+-- Now we know which color scheme to load
 vim.cmd.colorscheme(vim.g.default_colorscheme)
 
 -- Load the plugins (order matters)
@@ -34,7 +34,7 @@ simplug.load({
     "flash-nvim",
     "obsidian",
     "image-preview",
-    "telescope-media-files",
+    -- "telescope-media-files",
     "live-preview",
     -- "markdown-preview",
     "marp",
@@ -58,7 +58,6 @@ local lsp_config = require("lsp.default")
 lsp_config.lsp_list = {
     "clangd", -- c
     "lua_ls", -- lua
-    -- { name = "bashls", executable = "bash-language-server" }
 }
 
 -- initialize them all
