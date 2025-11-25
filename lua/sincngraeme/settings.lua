@@ -24,6 +24,12 @@ vim.o.foldmethod = 'marker'
 
 -- Default terminal
 vim.o.shell = "bash"
+vim.g.termdebug_wide = 1
+vim.g.termdebug_config = {
+    ["disasm_window"] = 1,
+    ["variables_window"] = 1,
+    ["sign"] = "<>",
+}
 
 -- Persistant undos
 vim.opt.undofile = true
@@ -49,6 +55,7 @@ vim.diagnostic.config({
   },
 })
 
+vim.opt.completeopt = { "menuone", "noselect", "popup"}
 -- }}}
 
 -- Tab Symbols for Makefile {{{

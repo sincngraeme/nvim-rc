@@ -34,6 +34,18 @@ vim.api.nvim_create_autocmd({ "WinEnter" }, {
             vim.cmd("startinsert")
     end
 })
+
+-- Overall better window movement
+vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Window control with alt" })
+vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Window control with alt" })
+vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Window control with alt" })
+vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Window control with alt" })
+-- For Terminal
+vim.keymap.set("t", "<A-j>", "<C-\\><C-n><C-w>j", { desc = "Window control with alt" })
+vim.keymap.set("t", "<A-k>", "<C-\\><C-n><C-w>k", { desc = "Window control with alt" })
+vim.keymap.set("t", "<A-h>", "<C-\\><C-n><C-w>h", { desc = "Window control with alt" })
+vim.keymap.set("t", "<A-l>", "<C-\\><C-n><C-w>l", { desc = "Window control with alt" })
+
 -- Open new terminal in split
 vim.keymap.set("n", "<leader>ots", function()
     vim.cmd("new")
@@ -134,5 +146,5 @@ vim.keymap.set("i", "<C-/>", "<Esc>/<C-r><C-w>", { desc = "Foreward searches cur
 vim.keymap.set("i", "<CS-/>", "<Esc>?<C-r><C-w>", { desc = "Reverse searches current buffer for word under cursor (insert mode)" })
 
 -- Trim Trailing Whitespace in File
-vim.keymap.set("n", "<leader>tw", "<cmd>%s/\\s*$//g<CR>")
+vim.keymap.set("n", "<leader>tw", "<cmd>%s/\\s*$//g<CR>''")
 vim.keymap.set("v", "<leader>tw", "<cmd>'<,'>s/\\s*$//g<CR>")

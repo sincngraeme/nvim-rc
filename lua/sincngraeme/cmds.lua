@@ -101,7 +101,7 @@ end
 
 ---------------------------- Autocommands ----------------------------
 
--- Making sure that when we edit a command from terminal we exit on save 
+-- Making sure that when we edit a command from terminal we exit on save
 -- (WINCOMPATIBLE)
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = "bash-fc.*",
@@ -118,6 +118,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
         vim.keymap.set("n", "C-z", "") -- Delete the map (does not persist)
     end
 })
+
+-- Set the statusline for terminal buffers
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.statusline = "%<%t %h%w%m%r %=" ..
+        "%{% &ruler ? ( &rulerformat == '' ? '%-14.(%l,%c%V%) %P' : &rulerformat ) : '' %}"
+    end
+})
+
 
 -- -- Prevent unused terminal buffers from cluttering the buffer list
 -- vim.api.nvim_create_autocmd("TermClose", {

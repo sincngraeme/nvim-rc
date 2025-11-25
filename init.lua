@@ -35,10 +35,15 @@ simplug.load({
     "obsidian",
     "image-preview",
     -- "telescope-media-files",
-    "live-preview",
+    -- "live-preview",
     -- "markdown-preview",
-    "marp",
+    "nvim-dap",
+    "nvim-nio",
+    "nvim-dap-ui",
 })
+
+-- Loading builtins
+-- vim.cmd.packadd("termdebug")
 
 -- Clean the unused plugins
 simplug.clean()
