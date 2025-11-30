@@ -5,20 +5,23 @@ vim.g.default_colorscheme = instinct.get('default_colorscheme')
 vim.g.bg_transparency = instinct.get('bg_transparency')
 
 -- Load the package manager
-local simplug = require("sincngraeme.modules.simplug")
+vim.pack.add({ "https://github.com/sincngraeme/simplug.nvim" })
+-- local simplug = require("sincngraeme.modules.simplug")
+local simplug = require("simplug")
 -- Configure
 simplug.setup({
     always_update = false,
+    offline_load = true
 })
 
 -- Load the color schemes 
--- simplug.load({
---     "kanagawa",
---     "tokyonight",
--- }, "colorschemes")
+simplug.load({
+    "kanagawa",
+    "tokyonight",
+}, "colorschemes")
 
 -- Now we know which color scheme to load
-vim.cmd.colorscheme(vim.g.default_colorscheme)
+vim.cmd.colorscheme("habamax")
 
 -- Load the plugins (order matters)
 simplug.load({
@@ -32,7 +35,8 @@ simplug.load({
     "vim-scimark",
     "vim-surround",
     "flash-nvim",
-    "obsidian",
+    "nvim-treesitter-textobjects",
+    -- "obsidian",
     "image-preview",
     -- "telescope-media-files",
     -- "live-preview",
@@ -42,8 +46,8 @@ simplug.load({
     "nvim-dap-ui",
 })
 
--- Loading builtins
--- vim.cmd.packadd("termdebug")
+-- Loading builtins (And already downloaded plugins)
+vim.cmd("packadd! termdebug")
 
 -- Clean the unused plugins
 simplug.clean()

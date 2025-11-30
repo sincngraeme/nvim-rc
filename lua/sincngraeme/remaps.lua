@@ -139,12 +139,6 @@ vim.keymap.set( "n", "<C-h>", "zH", { desc = "Scrolls the view sideways right"})
 -- Toggling Relative Line Numbers
 vim.keymap.set( "n", "<leader>tr", vim.cmd.ToggleRNU)
 
--- Search in file for item under cursor (no lsp or telescope)
--- This only works in insert mode to add some speed
--- For similar functionality in
-vim.keymap.set("i", "<C-/>", "<Esc>/<C-r><C-w>", { desc = "Foreward searches current buffer for word under cursor (insert mode)" })
-vim.keymap.set("i", "<CS-/>", "<Esc>?<C-r><C-w>", { desc = "Reverse searches current buffer for word under cursor (insert mode)" })
-
 -- Trim Trailing Whitespace in File
 vim.keymap.set("n", "<leader>tw", "<cmd>%s/\\s*$//g<CR>''")
 vim.keymap.set("v", "<leader>tw", "<cmd>'<,'>s/\\s*$//g<CR>")
