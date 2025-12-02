@@ -4,6 +4,10 @@ local instinct = require('sincngraeme.modules.instinct')
 vim.g.default_colorscheme = instinct.get('default_colorscheme')
 vim.g.bg_transparency = instinct.get('bg_transparency')
 
+vim.g.is_win = vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1
+vim.g.is_mac = vim.fn.has('macunix') == 1    -- works on macOS & BSD
+vim.g.is_unix = vim.fn.has('unix') == 1
+
 -- Load the package manager
 vim.pack.add({ "https://github.com/sincngraeme/simplug.nvim" })
 -- local simplug = require("sincngraeme.modules.simplug")
@@ -18,10 +22,12 @@ simplug.setup({
 simplug.load({
     "kanagawa",
     "tokyonight",
+    "smoke-nvim",
+    "vim-phoenix",
 }, "colorschemes")
 
 -- Now we know which color scheme to load
-vim.cmd.colorscheme("habamax")
+vim.cmd.colorscheme(vim.g.default_colorscheme)
 
 -- Load the plugins (order matters)
 simplug.load({
@@ -34,16 +40,13 @@ simplug.load({
     "undotree",
     "vim-scimark",
     "vim-surround",
-    "flash-nvim",
+    -- "flash-nvim",
     "nvim-treesitter-textobjects",
-    -- "obsidian",
     "image-preview",
-    -- "telescope-media-files",
-    -- "live-preview",
-    -- "markdown-preview",
     "nvim-dap",
     "nvim-nio",
     "nvim-dap-ui",
+    "obsidian"
 })
 
 -- Loading builtins (And already downloaded plugins)
@@ -59,15 +62,9 @@ require("sincngraeme.cmds")
 
 --- LSP SETUP ---
 
-local lsp_config = require("lsp.default")
-
--- List of LSPs we want setup 
 -- Configs pulled from https://github.com/neovim/nvim-lspconfig/tree/master/lsp
--- TODO: Update init() to accept table as arg rather than separate variable
-lsp_config.lsp_list = {
-    "clangd", -- c
-    "lua_ls", -- lua
-}
-
--- initialize them all
-lsp_config.init()
+local lsp_config = require("sincngraeme.modules.simplsp").init({
+    "clangd",   -- C/C++
+    -- "lua_ls",   -- lua
+    "pylsp",    -- python
+})

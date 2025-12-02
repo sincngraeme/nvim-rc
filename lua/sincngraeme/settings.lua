@@ -44,16 +44,17 @@ vim.opt.formatoptions:remove({ 'r', 'o', 'c' })
 -- }}}
 
 -- LSP {{{
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.HINT] = '⚑',
-      [vim.diagnostic.severity.INFO] = '',
-    },
-  },
-})
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = '',
+                [vim.diagnostic.severity.WARN] = '',
+                [vim.diagnostic.severity.HINT] = '⚑',
+                [vim.diagnostic.severity.INFO] = '',
+            },
+        },
+    })
 
 vim.opt.completeopt = { "menuone", "noselect", "popup"}
 -- }}}
