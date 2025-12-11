@@ -37,16 +37,18 @@ simplug.load({
     "telescope",
     "persistence",
     "markview",
+    "markdown-preview",
     "undotree",
     "vim-scimark",
     "vim-surround",
     -- "flash-nvim",
     "nvim-treesitter-textobjects",
-    "image-preview",
+    -- "image-preview",
     "nvim-dap",
     "nvim-nio",
     "nvim-dap-ui",
-    "obsidian"
+    "vim-dispatch",
+    -- "obsidian"
 })
 
 -- Loading builtins (And already downloaded plugins)
