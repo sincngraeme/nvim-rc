@@ -26,9 +26,9 @@ vim.o.foldmethod = 'marker'
 vim.o.shell = "bash"
 vim.g.termdebug_wide = 1
 vim.g.termdebug_config = {
-    ["disasm_window"] = 1,
-    ["variables_window"] = 1,
-    ["sign"] = "<>",
+    ["disasm_window"] = 0,
+    ["variables_window"] = 0,
+    ["sign"] = "B",
 }
 
 -- Persistant undos
@@ -45,13 +45,17 @@ vim.opt.formatoptions:remove({ 'r', 'o', 'c' })
 
 -- LSP {{{
     vim.diagnostic.config({
-        virtual_text = true,
+        -- virtual_text = true,
         signs = {
             text = {
-                [vim.diagnostic.severity.ERROR] = '',
-                [vim.diagnostic.severity.WARN] = '',
-                [vim.diagnostic.severity.HINT] = '⚑',
-                [vim.diagnostic.severity.INFO] = '',
+                -- [vim.diagnostic.severity.ERROR] = '',
+                -- [vim.diagnostic.severity.WARN] = '',
+                -- [vim.diagnostic.severity.HINT] = '⚑',
+                -- [vim.diagnostic.severity.INFO] = '',
+                [vim.diagnostic.severity.ERROR] = 'E',
+                [vim.diagnostic.severity.WARN] = 'W',
+                [vim.diagnostic.severity.HINT] = 'H',
+                [vim.diagnostic.severity.INFO] = 'I',
             },
         },
     })
