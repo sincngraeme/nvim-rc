@@ -44,3 +44,26 @@ if export_path then
         choose_engine(opts.args)
     end, { nargs = 1 })
 end
+
+-- Toggling checkboxes
+
+-- Complete 'x'
+vim.keymap.set("n", "<leader>tcx", function()
+    vim.cmd([[.g/^\s*- \[.\]/s/\(^\s*- \[\).\]/\1x]/]])
+end, { desc = "[T]oggle (markdown) [C]heckbox (with) [x]"})
+-- Incomplete' '
+vim.keymap.set("n", "<leader>tc ", function()
+    vim.cmd([[.g/^\s*- \[.\]/s/\(^\s*- \[\).\]/\1 ]/]])
+end, { desc = "[T]oggle (markdown) [C]heckbox (with) [ ]"})
+-- In progress '/'
+vim.keymap.set("n", "<leader>tc/", function()
+    vim.cmd([[.g/^\s*- \[.\]/s/\(^\s*- \[\).\]/\1\/]/]])
+end, { desc = "[T]oggle (markdown) [C]heckbox (with) [/]"})
+-- Important '!'
+vim.keymap.set("n", "<leader>tc!", function()
+    vim.cmd([[.g/^\s*- \[.\]/s/\(^\s*- \[\).\]/\1\!]/]])
+end, { desc = "[T]oggle (markdown) [C]heckbox (with) [!]"})
+-- Postponed 'b'
+vim.keymap.set("n", "<leader>tcb", function()
+    vim.cmd([[.g/^\s*- \[.\]/s/\(^\s*- \[\).\]/\1b]/]])
+end, { desc = "[T]oggle (markdown) [C]heckbox (with) [b]"})
