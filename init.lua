@@ -34,7 +34,7 @@ simplug.load({
     "undotree",
     "vim-scimark",
     "vim-surround",
-    "flash-nvim",
+    -- "flash-nvim",
     "nvim-treesitter-textobjects",
     -- "obsidian",
     "image-preview",

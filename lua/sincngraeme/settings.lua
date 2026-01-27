@@ -24,10 +24,10 @@ vim.o.foldmethod = 'marker'
 
 -- Default terminal
 vim.o.shell = "bash"
-vim.g.termdebug_wide = 1
+-- vim.g.termdebug_wide = 1
 vim.g.termdebug_config = {
-    ["disasm_window"] = 1,
-    ["variables_window"] = 1,
+    ["disasm_window"] = 0,
+    ["variables_window"] = 0,
     ["sign"] = "<>",
 }
 

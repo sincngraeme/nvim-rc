@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "flash.nvim": {
-      "rev": "fcea7ff",
-      "src": "https://github.com/folke/flash.nvim"
-    },
     "image.nvim": {
       "rev": "446a8a5",
       "src": "https://github.com/3rd/image.nvim"
