@@ -4,5 +4,3 @@
 -- vim.keymap.set( "o", "r",  function() flash.remote() end , { desc = "Remote Flash" })
 -- vim.keymap.set( { "o", "x" }, "<leader>R",  function() flash.treesitter_search() end , { desc = "Treesitter Search" })
 -- vim.keymap.set( { "c" }, "<c-s>",  function() flash.toggle() end , { desc = "Toggle Flash Search" })
---
---

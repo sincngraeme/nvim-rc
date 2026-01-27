@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>lex", vim.cmd.Lex)
 
+-- Open quickfix
+
 -- Reset Directory to Current File
 vim.keymap.set({'n','c'}, '<leader>cd', '<cmd>cd %:p:h<cr>')
 
@@ -94,6 +96,8 @@ vim.keymap.set("n", "<leader>ott", function()
     vim.cmd("startinsert")
 end, { desc = "Opens terminal in new tab" })
 
+-- Toggle the quickfix list
+vim.keymap.set("n", "<leader>tq", vim.cmd.Toggleqf, { desc = "Toggle the quickfix list" })
 
 -- Autopairing Brackets
 vim.keymap.set({"i", "n"}, "{<CR>", "{<CR>}<C-c>ko")
@@ -101,9 +105,12 @@ vim.keymap.set({"i", "n"}, "(<CR>", "(<CR>)<C-c>ko<Tab>")
 vim.keymap.set({"i", "n"}, "[<CR>", "[<CR>]<C-c>ko<Tab>")
 vim.keymap.set({"i", "n"}, "/*<CR>", "/*<CR><CR>*/<C-c>0xxk$a")
 
--- Buffer Switching
-vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
-vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
+-- Toggle lsp semantic tokens
+vim.keymap.set("n", "<leader>tst", function() 
+    vim.lsp.semantic_tokens.enable(
+        not vim.lsp.semantic_tokens.is_enabled()
+    ) 
+end, { desc = "[T]oggle (LSP)[S]emantic [T]okens"})
 
 -- Save and Quit
 vim.keymap.set("n", "<leader>wa", vim.cmd.wa)
