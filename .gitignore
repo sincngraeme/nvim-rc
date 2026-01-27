@@ -1,0 +1,2 @@
+# Ignore the lockfile for the package manager (Is automatically generated)
+/nvim-pack-lock.json
