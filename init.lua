@@ -32,7 +32,8 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 
 -- Load the plugins (order matters)
 simplug.load({
-    "nvim-notify",
+    -- "nvim-notify",
+    "fidget-nvim",
     "treesitter",
     "plenary",
     "telescope",
@@ -67,7 +68,8 @@ require("sincngraeme.cmds")
 
 -- Configs pulled from https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 local lsp_config = require("sincngraeme.modules.simplsp").init({
-    "clangd",   -- C/C++
-    -- "lua_ls",   -- lua
-    "pylsp",    -- python
+    "clangd-c",     -- C
+    "clangd-cpp",   -- C++
+    "lua_ls",       -- lua
+    "pylsp",        -- python
 })
