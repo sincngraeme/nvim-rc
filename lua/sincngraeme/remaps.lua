@@ -106,10 +106,10 @@ vim.keymap.set({"i", "n"}, "[<CR>", "[<CR>]<C-c>ko<Tab>")
 vim.keymap.set({"i", "n"}, "/*<CR>", "/*<CR><CR>*/<C-c>0xxk$a")
 
 -- Toggle lsp semantic tokens
-vim.keymap.set("n", "<leader>tst", function() 
+vim.keymap.set("n", "<leader>tst", function()
     vim.lsp.semantic_tokens.enable(
         not vim.lsp.semantic_tokens.is_enabled()
-    ) 
+    )
 end, { desc = "[T]oggle (LSP)[S]emantic [T]okens"})
 
 -- Save and Quit

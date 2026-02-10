@@ -69,7 +69,7 @@ require("sincngraeme.cmds")
 -- Configs pulled from https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 local lsp_config = require("sincngraeme.modules.simplsp").init({
     "clangd-c",     -- C
-    "clangd-cpp",   -- C++
+    -- "clangd-cpp",   -- C++
     "lua_ls",       -- lua
     "pylsp",        -- python
 })

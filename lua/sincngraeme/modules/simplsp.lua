@@ -39,7 +39,7 @@ vim.lsp.config('*', {
 -- Function to iterate over the table and initialize all the LSPs
 function M.init(lsp_list)
     local lsp_dir = "lsp"
-    local user_input = "y"
+    -- local user_input = "y"
     for _, lsp in ipairs(lsp_list) do
         local lsp_path = lsp_dir .. "." .. (lsp.name or lsp)
         local ok, module = pcall(require, lsp_path) -- If the module does not exist don't load
