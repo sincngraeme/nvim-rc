@@ -24,7 +24,7 @@ simplug.load({
     "tokyonight",
     "smoke-nvim",
     "vim-phoenix",
-    "everforest"
+    "everforest",
 }, "colorschemes")
 
 -- Now we know which color scheme to load

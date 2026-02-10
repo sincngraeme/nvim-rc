@@ -4,6 +4,9 @@ return {
         local presets = require("markview.presets")
         return require("markview").setup({
             markdown = {
+                block_quotes = { wrap = true },
+                headings = { org_indent_wrap = true },
+                list_items = { wrap = true },
                 horizontal_rules = presets.horizontal_rules.thin,
                 block_quotes = {
                     enable = true,

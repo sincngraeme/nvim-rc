@@ -23,7 +23,28 @@ vim.o.foldenable = true
 vim.o.foldmethod = 'marker'
 
 -- Default terminal
-vim.o.shell = "bash"
+if vim.g.is_win then
+    if vim.fn.executable("pwsh") == 1 then
+        vim.o.shell = "pwsh"
+        vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
+        vim.o.shellredir   = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+        vim.o.shellpipe    = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+        vim.o.shellquote   = ""
+        vim.o.shellxquote  = ""
+    elseif vim.fn.executable("powershell") == 1 then
+        vim.o.shell = "powershell"
+        vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
+        vim.o.shellredir   = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+        vim.o.shellpipe    = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+        vim.o.shellquote   = ""
+        vim.o.shellxquote  = ""
+    else
+        vim.o.shell = "cmd"
+    end
+else
+    vim.o.shell = "bash"
+end
+
 vim.g.termdebug_wide = 1
 vim.g.termdebug_config = {
     ["disasm_window"] = 0,
