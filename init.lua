@@ -49,12 +49,14 @@ simplug.load({
     "nvim-dap",
     "nvim-nio",
     "nvim-dap-ui",
-    "vim-dispatch",
+    -- "vim-dispatch",
     -- "obsidian"
+    -- "blunder"
 })
 
 -- Loading builtins (And already downloaded plugins)
 vim.cmd("packadd! termdebug")
+vim.cmd("packadd! cfilter")
 
 -- Clean the unused plugins
 simplug.clean()
@@ -63,6 +65,7 @@ simplug.clean()
 require("sincngraeme.remaps")
 require("sincngraeme.settings")
 require("sincngraeme.cmds")
+require("sincngraeme.modules.simbuild")
 
 --- LSP SETUP ---
 

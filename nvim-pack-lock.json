@@ -1,11 +1,11 @@
 {
   "plugins": {
     "everforest": {
-      "rev": "b90025cc84dbb9c46df5a2ae540d3f01cf85af74",
+      "rev": "b03a031",
       "src": "https://github.com/sainnhe/everforest"
     },
     "fidget.nvim": {
-      "rev": "e32b672d8fd343f9d6a76944fedb8c61d7d8111a",
+      "rev": "7fa433a",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "kanagawa.nvim": {
@@ -17,11 +17,11 @@
       "src": "https://github.com/iamcco/markdown-preview.nvim"
     },
     "markview.nvim": {
-      "rev": "31f9a26",
+      "rev": "9e852c2",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
     "nvim-dap": {
-      "rev": "5860c7c",
+      "rev": "e47878d",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-ui": {
@@ -66,12 +66,8 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "undotree": {
-      "rev": "0f1c981",
+      "rev": "fc28931",
       "src": "https://github.com/mbbill/undotree"
-    },
-    "vim-dispatch": {
-      "rev": "a2ff28abdb2d89725192db5b8562977d392a4d3f",
-      "src": "https://github.com/tpope/vim-dispatch"
     },
     "vim-phoenix": {
       "rev": "c1b429574c4405192227bf341048d645c7692dcb",

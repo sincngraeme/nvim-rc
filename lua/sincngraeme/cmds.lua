@@ -127,7 +127,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     callback = function()
         print("Running Cmd...")
         vim.cmd("q") -- Exit when we save
-    end
+   end
 })
 -- Stop C-z from suspending the process (WINCOMPATIBLE)
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -168,4 +168,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
 --     vim.api.nvim_buf_delete(buf, { force = true })
 --   end,
 -- })
---
+
+-- Opening make commands in terminal
+vim.api.nvim_create_user_command("Mk", function(opts)
+    vim.cmd("Start -wait=always make " .. table.concat(opts.fargs, " "))
+end, { nargs = "*" })
