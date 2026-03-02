@@ -49,6 +49,7 @@ simplug.load({
     "nvim-dap",
     "nvim-nio",
     "nvim-dap-ui",
+    "simbuild"
     -- "vim-dispatch",
     -- "obsidian"
     -- "blunder"
@@ -65,14 +66,14 @@ simplug.clean()
 require("sincngraeme.remaps")
 require("sincngraeme.settings")
 require("sincngraeme.cmds")
-require("sincngraeme.modules.simbuild")
 
 --- LSP SETUP ---
 
 -- Configs pulled from https://github.com/neovim/nvim-lspconfig/tree/master/lsp
-local lsp_config = require("sincngraeme.modules.simplsp").init({
+require("sincngraeme.modules.simplsp").init({
     "clangd-c",     -- C
     -- "clangd-cpp",   -- C++
+    "rust_analyzer",
     "lua_ls",       -- lua
-    "pylsp",        -- python
+    -- "pylsp",        -- python
 })

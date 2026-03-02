@@ -48,6 +48,10 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "simbuild.nvim": {
+      "rev": "108dbaf",
+      "src": "https://github.com/sincngraeme/simbuild.nvim"
+    },
     "simplug.nvim": {
       "rev": "8a6e2c7c98cefec627e5b52d459c34ce0fcb2613",
       "src": "https://github.com/sincngraeme/simplug.nvim"
