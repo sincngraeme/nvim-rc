@@ -8,10 +8,11 @@ vim.g.is_win = vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1
 vim.g.is_mac = vim.fn.has('macunix') == 1    -- works on macOS & BSD
 vim.g.is_unix = vim.fn.has('unix') == 1
 
--- Load the package manager
+-- Load the package manager (wrapper)
 vim.pack.add({ "https://github.com/sincngraeme/simplug.nvim" })
--- local simplug = require("sincngraeme.modules.simplug")
+
 local simplug = require("simplug")
+
 -- Configure
 simplug.setup({
     always_update = false,
@@ -32,15 +33,15 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 
 -- Load the plugins (order matters)
 simplug.load({
-    -- "nvim-notify",
     "fidget-nvim",
     "treesitter",
     "plenary",
     "telescope",
     "persistence",
+    "nvim-lspconfig",
     "markview",
     "markdown-preview",
-    "undotree",
+    -- "undotree", -- Testing out nvim.undotree builtin
     "vim-scimark",
     "vim-surround",
     -- "flash-nvim",
@@ -50,9 +51,6 @@ simplug.load({
     "nvim-nio",
     "nvim-dap-ui",
     "simbuild"
-    -- "vim-dispatch",
-    -- "obsidian"
-    -- "blunder"
 })
 
 -- Loading builtins (And already downloaded plugins)
@@ -66,19 +64,7 @@ simplug.clean()
 require("sincngraeme.remaps")
 require("sincngraeme.settings")
 require("sincngraeme.cmds")
-
---- LSP SETUP ---
-
--- Configs pulled from https://github.com/neovim/nvim-lspconfig/tree/master/lsp
-require("sincngraeme.modules.simplsp").init({
-    "clangd-c",     -- C
-    -- "clangd-cpp",   -- C++
-    "rust_analyzer",
-    "lua_ls",       -- lua
-    -- "pylsp",        -- python
-})
-
--- require("sincngraeme.modules.colorschemes.skeleton").setup({})
+require("sincngraeme.lsp")
 
 if vim.g.bg_transparency then
     vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

@@ -8,8 +8,7 @@ return {
                     path = "~/Documents/SecondBrain",
                 }
             },
-            ui = {
-                enable = false,
+            ui = { enable = false,
             },
             picker = {
                 name = "telescope.nvim",

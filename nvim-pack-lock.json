@@ -5,7 +5,7 @@
       "src": "https://github.com/sainnhe/everforest"
     },
     "fidget.nvim": {
-      "rev": "7fa433a",
+      "rev": "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "kanagawa.nvim": {
@@ -27,6 +27,10 @@
     "nvim-dap-ui": {
       "rev": "f5b6673",
       "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
+    "nvim-lspconfig": {
+      "rev": "75e49cfa588a89ca667d767c0afef3ceac205faa",
+      "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
       "rev": "21f5324",
@@ -68,10 +72,6 @@
     "tokyonight.nvim": {
       "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
       "src": "https://github.com/folke/tokyonight.nvim"
-    },
-    "undotree": {
-      "rev": "fc28931",
-      "src": "https://github.com/mbbill/undotree"
     },
     "vim-phoenix": {
       "rev": "c1b429574c4405192227bf341048d645c7692dcb",

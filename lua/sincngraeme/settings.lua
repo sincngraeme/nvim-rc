@@ -1,4 +1,6 @@
--- Basic {{{
+
+-- enable the better UI
+require('vim._core.ui2').enable({})
 
 -- line numbers
 vim.opt.nu = true
@@ -62,25 +64,6 @@ vim.g.netrw_banner = false
 -- Disable comment continuation
 vim.opt.formatoptions:remove({ 'r', 'o', 'c' })
 
--- }}}
-
--- LSP {{{
-vim.diagnostic.config({
-        signs = {
-            text = {
-                -- [vim.diagnostic.severity.ERROR] = '',
-                -- [vim.diagnostic.severity.WARN] = '',
-                -- [vim.diagnostic.severity.HINT] = '⚑',
-                -- [vim.diagnostic.severity.INFO] = '',
-                [vim.diagnostic.severity.ERROR] = 'E',
-                [vim.diagnostic.severity.WARN] = 'W',
-                [vim.diagnostic.severity.HINT] = 'H',
-                [vim.diagnostic.severity.INFO] = 'I',
-            },
-        },
-    })
-
-vim.opt.completeopt = { "menuone", "noselect", "popup"}
 -- }}}
 
 -- Tab Symbols for Makefile {{{

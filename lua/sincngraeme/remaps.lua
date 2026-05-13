@@ -6,6 +6,9 @@ vim.keymap.set("n", "<leader>lex", vim.cmd.Lex)
 
 -- Open quickfix
 
+-- Open Undotree
+vim.keymap.set("n", "<leader>tu", vim.cmd.Undotree)
+
 -- Reset Directory to Current File
 vim.keymap.set({'n','c'}, '<leader>cd', '<cmd>cd %:p:h<cr>')
 
