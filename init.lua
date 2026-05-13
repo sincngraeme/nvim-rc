@@ -77,3 +77,9 @@ require("sincngraeme.modules.simplsp").init({
     "lua_ls",       -- lua
     -- "pylsp",        -- python
 })
+
+-- require("sincngraeme.modules.colorschemes.skeleton").setup({})
+
+if vim.g.bg_transparency then
+    vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+end
