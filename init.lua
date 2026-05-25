@@ -34,7 +34,7 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 -- Load the plugins (order matters)
 simplug.load({
     "fidget-nvim",
-    "treesitter",
+    -- "treesitter",
     "plenary",
     "telescope",
     "persistence",
@@ -42,10 +42,10 @@ simplug.load({
     "markview",
     "markdown-preview",
     -- "undotree", -- Testing out nvim.undotree builtin
-    "vim-scimark",
+    -- "vim-scimark",
     "vim-surround",
     -- "flash-nvim",
-    "nvim-treesitter-textobjects",
+    -- "nvim-treesitter-textobjects",
     -- "image-preview",
     "nvim-dap",
     "nvim-nio",
@@ -55,6 +55,7 @@ simplug.load({
 
 -- Loading builtins (And already downloaded plugins)
 vim.cmd("packadd! termdebug")
+vim.cmd("packadd! nvim.undotree")
 vim.cmd("packadd! cfilter")
 
 -- Clean the unused plugins
