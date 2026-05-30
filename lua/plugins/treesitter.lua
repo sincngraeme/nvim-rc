@@ -2,18 +2,18 @@ return {
     link = "nvim-treesitter/nvim-treesitter",
     config = function()
         local ts = require("nvim-treesitter")
-        ts.setup({})
+        -- ts.setup({})
 
-        -- ts.install({
-        --     "c", "cpp",
-        --     "javascript", "html", "css",
-        --     "python",
-        --     "lua",
-        --     "vim", "vimdoc",
-        --     "query",
-        --     "markdown", "markdown_inline", "yaml",
-        --     "typst"
-        -- })
+        ts.install({
+            "c", "cpp",
+            "javascript", "html", "css",
+            "python",
+            "lua",
+            "vim", "vimdoc",
+            "query",
+            "markdown", "markdown_inline", "yaml",
+            "typst"
+        })
 
         -- local ts_install = require("nvim-treesitter.install")
         --
