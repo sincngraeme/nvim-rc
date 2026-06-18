@@ -1,8 +1,24 @@
 return {
     link = "nvim-treesitter/nvim-treesitter",
     config = function()
+	    if vim.fn.executable('tree-sitter') == 0 then
+            vim.notify(
+                "Treesitter CLI Not installed: " .. 
+                "https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md"
+            ) 
+            return
+        end
+        -- Enabling Highlights
+        vim.api.nvim_create_autocmd('FileType', { 
+            callback = function() 
+                -- Enable treesitter highlighting and disable regex syntax
+                pcall(vim.treesitter.start) 
+                -- Enable treesitter-based indentation
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" 
+            end, 
+        }) 
+	    -- If we do have the treesitter CLI
         local ts = require("nvim-treesitter")
-        -- ts.setup({})
 
         ts.install({
             "c", "cpp",
@@ -14,30 +30,5 @@ return {
             "markdown", "markdown_inline", "yaml",
             "typst"
         })
-
-        -- local ts_install = require("nvim-treesitter.install")
-        --
-        -- -- Set the compiler for Windows compatibility
-        -- ts_install.compilers = {"clang", "gcc", "cl"}  -- Prioritize "clang" or "gcc" before MSVC's "cl"
-        -- ts_install.prefer_git = false
-        --
-        -- require('nvim-treesitter.configs').setup({
-        --     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        --     ensure_installed = {
-        --         "c", "cpp",
-        --         "javascript", "html", "css",
-        --         "python",
-        --         "lua",
-        --         "vim", "vimdoc",
-        --         "query",
-        --         "markdown", "markdown_inline", "yaml",
-        --         "typst"
-        --     },
-        --
-        --     highlight = {
-        --         enable = true,
-        --         additional_vim_regex_highlighting = false,
-        --     },
-        -- })
     end
 }
