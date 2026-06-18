@@ -1,6 +1,5 @@
-
 -- enable the better UI
-require('vim._core.ui2').enable({})
+-- (require('vim._core.ui2')).enable({})
 
 -- line numbers
 vim.opt.nu = true

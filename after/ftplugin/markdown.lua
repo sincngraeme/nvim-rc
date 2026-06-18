@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>zl", "z=", { desc = "List spelling suggestions", bu
 vim.opt_local.conceallevel = 2
 vim.opt_local.wrap = true
 vim.opt_local.wrapmargin = 5
-vim.opt_local.linebreak = true
+-- vim.opt_local.linebreak = true
 vim.opt_local.spell = true
 vim.opt_local.spelllang = {'en_us', 'en_gb'}
 -- Filetype specific commands
