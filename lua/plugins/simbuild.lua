@@ -9,6 +9,7 @@ return {
             ["Gcc"] = "gcc",
             ["Gpp"] = "g++",
             ["Clang"] = "clang",
+            ["Build"] = "./scripts/build_rpi.sh --hardware can0 125000",
         })
     end
 }

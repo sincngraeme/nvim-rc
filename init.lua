@@ -39,6 +39,8 @@ simplug.load({
     "telescope",
     "persistence",
     "nvim-lspconfig",
+    "friendly-snippets",
+    "luasnip",
     "markview",
     "markdown-preview",
     -- "undotree", -- Testing out nvim.undotree builtin

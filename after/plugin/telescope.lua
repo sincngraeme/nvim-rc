@@ -71,6 +71,10 @@ local function choose_dir(query_root, opts)
     }):find()
 end
 
+local function get_filetype()
+  return vim.bo.filetype or ""
+end
+
 local path_separator = '/'
 if vim.g.is_win then
     path_separator = '\\'
