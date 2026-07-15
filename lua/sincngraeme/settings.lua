@@ -55,7 +55,7 @@ vim.g.termdebug_config = {
 
 -- Persistant undos
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.stdpath('config') .. '~/.config/nvim/undo'
+vim.opt.undodir = vim.fn.stdpath('config') .. '/undo/'
 
 -- Netrw Appearance
 vim.g.netrw_banner = false
