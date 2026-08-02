@@ -34,7 +34,7 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 -- Load the plugins (order matters)
 simplug.load({
     "fidget-nvim",
-    -- "treesitter",
+    "treesitter",
     "plenary",
     "telescope",
     "persistence",

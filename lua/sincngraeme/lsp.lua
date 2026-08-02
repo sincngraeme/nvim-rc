@@ -1,6 +1,8 @@
 vim.lsp.enable({
     "clangd",
-    "lua_ls"
+    "lua_ls",
+    "phpactor",
+    "ts_ls",
 })
 
 -- LSP related settings
