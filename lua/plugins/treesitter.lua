@@ -28,7 +28,8 @@ return {
             "vim", "vimdoc",
             "query",
             "markdown", "markdown_inline", "yaml",
-            "typst"
+            "typst",
+            "go"
         })
     end
 }

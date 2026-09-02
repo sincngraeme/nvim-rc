@@ -33,26 +33,35 @@ vim.cmd.colorscheme(vim.g.default_colorscheme)
 
 -- Load the plugins (order matters)
 simplug.load({
-    "fidget-nvim",
-    -- "treesitter",
     "plenary",
+    "fidget-nvim",
+    "treesitter",
     "telescope",
     "persistence",
     "nvim-lspconfig",
+--- Build Tools:
+    "simbuild",
+--- Snippets Setup:
     "friendly-snippets",
     "luasnip",
+--- Markdown Setup:
     "markview",
     "markdown-preview",
-    -- "undotree", -- Testing out nvim.undotree builtin
-    -- "vim-scimark",
+--- Actions:
     "vim-surround",
     -- "flash-nvim",
-    -- "nvim-treesitter-textobjects",
+---- Pretty:
+    "nvim-treesitter-textobjects",
+    -- "vim-scimark",
     -- "image-preview",
+--- Debugger Setup:
     "nvim-dap",
     "nvim-nio",
     "nvim-dap-ui",
-    "simbuild"
+--- Database Integrations
+    "dadbod",
+    "dadbod-completion",
+    "dadbod-ui",
 })
 
 -- Loading builtins (And already downloaded plugins)

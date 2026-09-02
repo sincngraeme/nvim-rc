@@ -1,6 +1,16 @@
 vim.lsp.enable({
     "clangd",
-    "lua_ls"
+    "lua_ls",
+    "gopls",
+    "cssls",
+    "jsonls",
+    "ts_ls",
+    "html",
+    "arduino_language_server",
+})
+
+vim.lsp.config('gopls', {
+    cmd = { vim.fn.expand('~/go/bin/gopls') }
 })
 
 -- LSP related settings

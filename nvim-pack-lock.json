@@ -44,6 +44,14 @@
       "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
+    "nvim-treesitter": {
+      "rev": "0153df68b44fa97a3e11696ca55cbdd7a6d42398",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "persistence.nvim": {
       "rev": "b20b2a7887bd39c1a356980b45e03250f3dce49c",
       "src": "https://github.com/folke/persistence.nvim"
@@ -53,8 +61,9 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "simbuild.nvim": {
-      "rev": "108dbaf657922456de4d08c405b32a3cd1dfbac2",
-      "src": "https://github.com/sincngraeme/simbuild.nvim"
+      "rev": "b749635356e8f04be6a08a5ebaa16fa970df0308",
+      "src": "https://github.com/sincngraeme/simbuild.nvim",
+      "version": "'main'"
     },
     "simplug.nvim": {
       "rev": "8a6e2c7c98cefec627e5b52d459c34ce0fcb2613",
@@ -65,13 +74,25 @@
       "src": "https://github.com/austinliuigi/smoke.nvim"
     },
     "telescope.nvim": {
-      "rev": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026",
+      "rev": "5255aa27c422de944791318024167ad5d40aad20",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
-      "version": "'0.1.8'"
+      "version": "'v0.2.2'"
     },
     "tokyonight.nvim": {
       "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
       "src": "https://github.com/folke/tokyonight.nvim"
+    },
+    "vim-dadbod": {
+      "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
+      "src": "https://github.com/tpope/vim-dadbod"
+    },
+    "vim-dadbod-completion": {
+      "rev": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6",
+      "src": "https://github.com/kristijanhusak/vim-dadbod-completion"
+    },
+    "vim-dadbod-ui": {
+      "rev": "afd07819d8efcefc3317205b855ad4e3513b0011",
+      "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
     },
     "vim-phoenix": {
       "rev": "c1b429574c4405192227bf341048d645c7692dcb",

@@ -1,15 +1,22 @@
 return {
-    link = "sincngraeme/simbuild.nvim",
+    link = { src = "sincngraeme/simbuild.nvim", version = "main" },
     config = function()
-        require("simbuild").setup({
-            ["Make"] = "make",
-            ["Cmake"] = "cmake",
-            ["CMake"] = "cmake",
-            ["Cargo"] = "cargo",
-            ["Gcc"] = "gcc",
-            ["Gpp"] = "g++",
-            ["Clang"] = "clang",
-            ["Build"] = "./scripts/build_rpi.sh --hardware can0 125000",
+        local simbuild = require("simbuild")
+        simbuild.setup({
+            ["Make"]    = "make",
+            ["Cmake"]   = "cmake",
+            ["CMake"]   = "cmake",
+            ["Cargo"]   = "cargo",
+            ["Gcc"]     = "gcc",
+            ["Git"]     = "git",
+            ["Gpp"]     = "g++",
+            ["Clang"]   = "clang",
+            ["Define"]  = "define",
+            ["Go"]      = "go",
+            ["Bash"]    = "bash",
         })
+        vim.api.nvim_create_user_command('SimbuildRefresh', function() 
+            simbuild.refresh()
+        end, {})
     end
 }
