@@ -7,6 +7,7 @@ vim.lsp.enable({
     "ts_ls",
     "html",
     "arduino_language_server",
+    "phpactor",
 })
 
 vim.lsp.config('gopls', {

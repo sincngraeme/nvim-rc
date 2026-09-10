@@ -61,7 +61,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "simbuild.nvim": {
-      "rev": "b749635356e8f04be6a08a5ebaa16fa970df0308",
+      "rev": "045e5be4e629beb3b00643996deb4d897d5386b4",
       "src": "https://github.com/sincngraeme/simbuild.nvim",
       "version": "'main'"
     },
