@@ -1,7 +1,8 @@
 vim.lsp.enable({
     "clangd",
     "lua_ls",
-    "qmlls"
+    "phpactor",
+    "ts_ls",
 })
 
 vim.lsp.config('qmlls', { cmd = {'qmlls6'}})

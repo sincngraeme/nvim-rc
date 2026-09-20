@@ -1,5 +1,7 @@
 -- enable the better UI
--- (require('vim._core.ui2')).enable({})
+if vim.version.ge(vim.version(), {0,12,0}) then
+    require('vim._core.ui2').enable({ })
+end
 
 -- line numbers
 vim.opt.nu = true
@@ -63,9 +65,7 @@ vim.g.netrw_banner = false
 -- Disable comment continuation
 vim.opt.formatoptions:remove({ 'r', 'o', 'c' })
 
--- }}}
-
--- Tab Symbols for Makefile {{{
+-- Tab Symbols for Makefile
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "make",
   callback = function()
@@ -76,5 +76,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.list = true
     vim.opt.listchars:append("tab:→ ")
   end
-}) -- }}}
+})
 
