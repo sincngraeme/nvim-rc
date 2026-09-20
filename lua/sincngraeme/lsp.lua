@@ -5,6 +5,8 @@ vim.lsp.enable({
     "ts_ls",
 })
 
+vim.lsp.config('qmlls', { cmd = {'qmlls6'}})
+
 -- LSP related settings
 vim.opt.pumheight = 10
 vim.opt.signcolumn = 'yes'

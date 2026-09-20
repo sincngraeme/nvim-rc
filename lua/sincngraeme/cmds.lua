@@ -88,6 +88,13 @@ vim.api.nvim_create_user_command('ScratchNew', function()
     vim.cmd("setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted")
 end, {})
 
+function _G.NewEmptyConsole()
+    vim.cmd([[ vert new | wincmd L ]])
+    vim.cmd("setlocal buftype=nofile noswapfile")
+    local console = vim.api.nvim_get_chan_info(vim.fn.termopen({"sleep", "infinity"}))
+    return console
+end
+
 -- Scratch buffer for clipboard editing
 function _G.CreateClipboardScratchBuffer()
     vim.cmd("Scratch")

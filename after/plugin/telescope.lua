@@ -1,6 +1,6 @@
 -- Telescope bindings, and custom pickers
 
-local ok, telescope = pcall(require, 'telescope')
+local ok, _ = pcall(require, 'telescope')
 if not ok then
     vim.notify("Failed to load module: Telescope", vim.log.levels.ERROR)
     return

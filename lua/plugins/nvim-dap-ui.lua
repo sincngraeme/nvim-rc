@@ -3,6 +3,11 @@ return {
     config = function()
         local dapui = require("dapui")
         dapui.setup({
+            icons = {
+                collapsed = "+",
+                current_frame = "+",
+                expanded = "-",
+            },
             layouts = {
                 {   -- Side panel
                     elements = {
@@ -16,10 +21,10 @@ return {
                 },
                 {   -- Bottom panel
                     elements = {
-                        "console",
-                        "terminal",
+                        -- "repl",
+                        { id = "console", size = 0.7 },
                     },
-                    size = 15,  -- Height
+                    size = 12,  -- Height
                     position = "bottom"
                 },
             }

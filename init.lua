@@ -52,6 +52,7 @@ simplug.load({
     "nvim-dap",
     "nvim-nio",
     "nvim-dap-ui",
+    "nvim-dap-virtual-text",
     "simbuild"
 })
 
@@ -70,5 +71,14 @@ require("sincngraeme.cmds")
 require("sincngraeme.lsp")
 
 if vim.g.bg_transparency then
-    vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+    local groups = {
+        'Normal',
+        'NormalNC',
+        'NormalFLoat',
+        'SignColomn',
+        'EndOfBuffer'
+    }
+    for _, group in ipairs(groups) do
+        vim.api.nvim_set_hl(0, group, { bg = 'NONE', ctermbg = 'NONE' })
+    end
 end
