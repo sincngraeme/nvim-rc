@@ -1,7 +1,10 @@
 vim.lsp.enable({
     "clangd",
-    "lua_ls"
+    "lua_ls",
+    "qmlls"
 })
+
+vim.lsp.config('qmlls', { cmd = {'qmlls6'}})
 
 -- LSP related settings
 vim.opt.pumheight = 10

@@ -7,6 +7,8 @@ vim.keymap.set("n", "<leader>xi", function() dap.step_into() end, { desc = "Step
 vim.keymap.set("n", "<leader>xo", function() dap.step_out() end, { desc = "Steps debugger out of the current scope"})
 vim.keymap.set("n", "<leader>xtb", function() dap.toggle_breakpoint() end, { desc = "Toggles a breakpoint on the current line"})
 vim.keymap.set("n", "<leader>xsb", function() dap.set_breakpoint() end, { desc = "Sets a breakpoint on the current line"})
+vim.keymap.set("n", "<leader>xrc", function() dap.run_to_cursor() end, { desc = "Run to current cursor position"})
+vim.keymap.set("n", "<leader>xT", function() dap.terminate() end, { desc = "Terminate the current session"})
 vim.keymap.set("n", "<leader>xsc", function()
     dap.set_breakpoint(vim.fn.input("Condition: "))
 end, { desc = "Sets a conditional breakpoint on the current line"})
@@ -25,4 +27,5 @@ vim.keymap.set("n", "<leader>xx", function() ui.toggle() end, { desc = "Continue
 vim.keymap.set("n", "<leader>xe", function() ui.eval() end, { desc = "Evaluate the expression under the cursor"})
 vim.keymap.set("n", "<leader>xf", function() ui.float_element() end, { desc = "Float an element"})
 
+dap.defaults.c.terminal_win_cmd = "belowright new"
 dap.defaults.fallback.terminal_win_cmd = "belowright new"
