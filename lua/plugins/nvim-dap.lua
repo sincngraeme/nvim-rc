@@ -61,11 +61,10 @@ return {
         end
 
         dap.adapters.c = {
+            id = 'gdb',
             type = 'executable',
             command = 'gdb',
-            args = {
-                '--interpreter=dap',
-            },
+            args = { '--quiet', '--interpreter=dap', },
         }
 
         dap.configurations.c = {

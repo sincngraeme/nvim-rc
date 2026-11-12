@@ -1,7 +1,8 @@
 return {
     link = "sincngraeme/simbuild.nvim",
     config = function()
-        require("simbuild").setup({
+        local simbuild = require("simbuild")
+        simbuild.setup({
             ["Make"] = "make",
             ["Cmake"] = "cmake",
             ["CMake"] = "cmake",
@@ -9,7 +10,11 @@ return {
             ["Gcc"] = "gcc",
             ["Gpp"] = "g++",
             ["Clang"] = "clang",
-            ["Build"] = "sudo ./install.bash",
+            ["Just"] = "just",
         })
+
+        vim.api.nvim_create_user_command("SimbuildRefresh", function()
+            simbuild.refresh()
+        end, {})
     end
 }

@@ -25,6 +25,9 @@ vim.opt.incsearch = true
 vim.o.foldenable = true
 vim.o.foldmethod = 'marker'
 
+-- Prevent Quickfix list from changing current window if the buffer is already open
+vim.opt.switchbuf:append("usetab")
+
 -- Default terminal
 if vim.g.is_win then
     if vim.fn.executable("pwsh") == 1 then
